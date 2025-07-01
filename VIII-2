@@ -1,0 +1,41 @@
+Lista de Exercícios VIII:
+	
+	QUESTÃO 02:
+	Implementar uma função que converta determinada temperatura 
+	em graus Celsius para graus Fahrenheit.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+float conversao (float c);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	float celsius, fahrenheit;
+	
+	//lendo os valores
+	printf ("Entre a temperatura em Celsius: ");
+	scanf ("%f", &celsius);
+	
+	//chamando a função
+	//fahrenheit = conversao (celsius);
+	
+	printf ("\n%.1f oC = %.1f oF", celsius, conversao (celsius));	
+}
+
+//implementação das funções
+float conversao (float c)
+{
+	//declaração de variáveis
+	//float temp;
+	
+	//fazendo a conversão
+	return (1.8 * c) + 32; 
+	
+	//retornando o resultado
+	//return temp;
+}
