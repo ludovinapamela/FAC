@@ -1,0 +1,62 @@
+QUESTÃO 03:
+	Fazer uma função leituraDados que permaneça lendo valores 
+	reais até que o número 0 seja digitado. Ao final, a função 
+	deve determinar a quantidade de elementos fornecidos (excluindo 
+	o 0) e o maior dentre eles.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+#include <limits.h>
+
+//protótipos das funções
+void leituraDados (int *quantidade, float *maior);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int quant;
+	float max;
+	
+	//chamando a função
+	leituraDados (&quant, &max);
+	
+	//exibindo os resultados
+	printf ("\n\nQuantidade: %d", quant);
+	printf ("\nMaior: %.1f", max);
+}
+
+//implementação das funções
+void leituraDados (int *quantidade, float *maior)
+{
+	//declaração de variáveis
+	float numero;
+	
+	*maior = INT_MIN;
+	*quantidade = 0;
+	
+	do
+	{
+		//lendo os valores
+		printf ("Entre com um numero: ");
+		scanf ("%f", &numero);
+		
+		if (numero != 0)
+		{
+			//atualizando a quantidade
+			(*quantidade)++;
+			
+			//verificando se é o maior valor
+			if (numero > *maior)
+			{
+				*maior = numero;
+			}
+		}
+	}
+	while (numero != 0);
+	
+	//atribuindo os resultados aos parâmetros de 'saída' (parâmetros por referência)
+	//*quantidade = cont;
+	//*maior = maiorValor;
+}
