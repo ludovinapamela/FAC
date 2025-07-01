@@ -1,0 +1,118 @@
+Vamos esclarecer os conceitos de **`do while`**, **`while`** e **`break`** na linguagem **C** (vale também para muitas outras linguagens com pequenas variações). Vou explicar com exemplos e comentários:
+
+---
+
+### 🔁 `while`
+
+O loop `while` **testa a condição antes de executar o bloco de código**.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    while (i < 5) {
+        printf("Valor de i: %d\n", i);
+        i++;
+    }
+
+    return 0;
+}
+```
+
+📌 **Saída:**
+
+```
+Valor de i: 0
+Valor de i: 1
+Valor de i: 2
+Valor de i: 3
+Valor de i: 4
+```
+
+---
+
+### 🔁 `do while`
+
+O loop `do while` **executa o bloco pelo menos uma vez**, **e depois testa a condição**.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    do {
+        printf("Valor de i: %d\n", i);
+        i++;
+    } while (i < 5);
+
+    return 0;
+}
+```
+
+📌 **Saída:**
+
+```
+Valor de i: 0
+Valor de i: 1
+Valor de i: 2
+Valor de i: 3
+Valor de i: 4
+```
+
+💡 Se a condição fosse falsa desde o início, `while` não executaria, mas `do while` executaria **pelo menos uma vez**:
+
+```c
+int i = 10;
+do {
+    printf("Executado!\n");
+} while (i < 5);
+// Isso imprime "Executado!" uma vez.
+```
+
+---
+
+### ⛔ `break`
+
+A palavra-chave `break` **interrompe a repetição**, saindo imediatamente do loop.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 0;
+
+    while (i < 10) {
+        if (i == 5) {
+            break; // Sai do loop quando i == 5
+        }
+        printf("i = %d\n", i);
+        i++;
+    }
+
+    return 0;
+}
+```
+
+📌 **Saída:**
+
+```
+i = 0
+i = 1
+i = 2
+i = 3
+i = 4
+```
+
+---
+
+### ✅ Resumo Rápido:
+
+| Estrutura  | Executa ao menos uma vez? | Verifica condição antes? | Pode ser interrompido com `break`? |
+| ---------- | ------------------------- | ------------------------ | ---------------------------------- |
+| `while`    | ❌                         | ✅                        | ✅                                  |
+| `do while` | ✅                         | ❌ (verifica depois)      | ✅                                  |
+| `break`    | -                         | -                        | ✅ (interrompe o loop)              |
+
