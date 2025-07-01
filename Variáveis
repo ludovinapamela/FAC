@@ -1,0 +1,111 @@
+Ótimo! Saber os **tipos de variáveis** em C é essencial pra sua prova. Aqui vai um **resumo direto e prático** com os principais tipos, suas funções e exemplos:
+
+---
+
+### 🔢 **1. `int` — Inteiros**
+
+* Armazena números inteiros (positivos ou negativos)
+* Ex: -100, 0, 25, 999
+
+```c
+int idade = 20;
+```
+
+---
+
+### 🧮 **2. `float` — Reais com ponto flutuante (menos preciso)**
+
+* Armazena números com casas decimais (menos precisão que `double`)
+* Usa **ponto** (não vírgula): `3.14`, `-2.5`
+
+```c
+float altura = 1.75;
+```
+
+---
+
+### 🧮🧠 **3. `double` — Reais com mais precisão**
+
+* Igual ao `float`, mas mais preciso (usa mais memória)
+
+```c
+double pi = 3.1415926535;
+```
+
+---
+
+### 🔡 **4. `char` — Caractere**
+
+* Armazena **um caractere** apenas, entre aspas simples `'A'`, `'1'`, `'#'`
+
+```c
+char letra = 'A';
+```
+
+---
+
+### 🟢 **5. `bool` — Lógico (0 ou 1)**
+
+* Para valores **verdadeiro/falso**: `true` ou `false`
+* Só funciona com `#include <stdbool.h>`
+
+```c
+#include <stdbool.h>
+
+bool ligado = true;
+```
+
+---
+
+### 🗂️ **Modificadores de tipo (opcional):**
+
+Usados para mudar o **tamanho ou sinal** das variáveis:
+
+| Modificador | O que faz                        | Exemplo                   |
+| ----------- | -------------------------------- | ------------------------- |
+| `short`     | Menor espaço que `int`           | `short int x = 10;`       |
+| `long`      | Mais espaço que `int`            | `long int y = 999999999;` |
+| `unsigned`  | Só valores positivos (sem sinal) | `unsigned int n = 500;`   |
+
+---
+
+### 💡 Dica de prova:
+
+* **Use `%d` para `int`**
+* **Use `%f` para `float`**
+* **Use `%lf` para `double`**
+* **Use `%c` para `char`**
+
+Exemplo com `scanf`:
+
+```c
+int idade;
+scanf("%d", &idade); // importante usar &
+```
+
+---
+
+### 🧪 Exemplos juntos:
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    int idade = 25;
+    float altura = 1.75;
+    double pi = 3.1415;
+    char letra = 'B';
+    bool ligado = true;
+
+    printf("Idade: %d\n", idade);
+    printf("Altura: %.2f\n", altura);
+    printf("PI: %.4lf\n", pi);
+    printf("Letra: %c\n", letra);
+    printf("Ligado: %d\n", ligado); // true = 1
+}
+```
+
+---
+
+Se quiser, posso te montar uma **tabelinha para colar nos estudos** ou criar **questões de múltipla escolha** sobre isso. Quer que eu prepare?
