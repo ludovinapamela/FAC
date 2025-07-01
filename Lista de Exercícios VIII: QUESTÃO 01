@@ -1,0 +1,49 @@
+
+	Data: 21/05/2025
+	
+	Lista de Exercícios VIII:
+	
+	QUESTÃO 01:
+	Desenvolver uma função que exiba os múltiplos de N 
+	compreendidos no intervalo definido por A e B.	
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+void exibirMultiplos (int n, int a, int b);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int numero, inf, sup;
+	
+	//lendo os valores
+	printf ("Entre com um numero inteiro: ");
+	scanf ("%d", &numero);
+	
+	printf ("Entre com o intervalo: ");
+	scanf ("%d %d", &inf, &sup);
+	
+	//chamando a função
+	exibirMultiplos (numero, inf, sup);
+}
+
+//funções
+void exibirMultiplos (int n, int a, int b)
+{
+	//declaração de variáveis
+	int i;
+	
+	//percorrendo o intervalo
+	for (i=a;i<=b;i++)
+	{
+		//verificando se 'i' é múltiplo de 'n'
+		if (i%n==0)
+		{
+			printf ("%d ", i);
+		}
+	}
+}
