@@ -1,0 +1,72 @@
+Data: 04/06/2025
+	
+	Lista de Exercícios IX:
+	
+	QUESTÃO 02:
+	Dados dois números inteiros A e B, fazer uma função que 
+	determine o número de potências de 2 existentes no intervalo 
+	definido pelos dois valores, assim como a maior delas.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+void potencias2 (int a, int b, int *quant, int *maiorPotencia);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int inf, sup, quantidade, maiorPot;
+	
+	//lendo o intervalo
+	printf ("Entre com o intervalo: ");
+	scanf ("%d %d", &inf, &sup);
+		
+	//chamando a função
+	potencias2 (inf, sup, &quantidade, &maiorPot);
+	
+	//exibindo os resultados
+	printf ("\n\nQuantidade de potencias: %d", quantidade);
+	printf ("\n\nMaior potencia no intervalo: %d", maiorPot);
+}
+
+//implementação das funções
+void potencias2 (int a, int b, int *quant, int *maiorPotencia)
+{
+	//declaração de variáveis
+	int i, aux, cont=0, maior;//=-9999;
+	
+	//percorrendo o intervalo de 'a' a 'b'
+	for (i=a;i<=b;i++)
+	{
+		//verificando se 'i' é potência de 2		
+		aux = i;
+		while (aux%2==0)
+		{
+			aux /= 2;
+		}
+		
+		//se chegou ao valor 1, é uma potência de 2
+		if (aux == 1)
+		{
+	
+			while (i <= b)
+			{
+   			    //atualizando a quantidade de potências de 2
+				cont++;
+									
+				//atualizando a maior potência			
+				maior = i;
+				
+				//atualizando a potência de 2
+				i = i*2;
+			}
+		}
+	}
+	
+	//atribuindo os resultados aos parâmetros
+	*quant = cont;
+	*maiorPotencia = maior;
+}
