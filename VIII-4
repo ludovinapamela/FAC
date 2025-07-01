@@ -1,0 +1,57 @@
+Lista de Exercícios VIII:
+	
+	QUESTÃO 04:
+	Fazer uma função que calcule o MDC (máximo divisor comum) 
+	entre dois números.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+int mdc (int num1, int num2);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int numero1, numero2, resultado;
+	
+	//lendo os dois valores
+	printf ("Entre com dois numeros: ");
+	scanf ("%d %d", &numero1, &numero2);
+	
+	//chamando a função
+	resultado = mdc (numero1, numero2);
+	
+	//exibindo o resultado
+	printf ("\n\nMDC(%d,%d) = %d", numero1, numero2, resultado);
+}
+
+//implementação das funções
+int mdc (int num1, int num2)
+{
+	//declaração de variáveis
+	int i, menor;
+	
+	//determinando o menor
+	if (num1 < num2)
+	{
+		menor = num1;
+	}
+	else
+	{
+		menor = num2;
+	}
+	//ou:   menor = (num1<num2)?num1:num2;
+	
+	//varrendo o intervalo dos possíveis resultados
+	for (i=menor;i>=1;i--)
+	{
+		//verificando se 'i' é múltiplo 
+		if ((num1%i==0) && (num2%i==0))
+		{
+			return i;
+		}
+	}
+}
