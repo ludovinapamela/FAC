@@ -1,0 +1,116 @@
+Lista de Exercícios X (vetores)
+	
+	QUESTÃO 08:
+	Dados um vetor de reais (cujos elementos estão ordenados crescentemente) e um número x, 
+	retornar a posição da primeira ocorrência de x (caso encontre-se no vetor) ou a posição 
+	na qual deveria estar (caso contrário).
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+int buscar (int vetor[], int quantidade, int valor);
+
+void preencherAleatorio (int vetor[], int tamanho, int limite);
+void preencherAleatorioOrdenado (int vetor[], int tamanho);
+void exibir (int vetor[], int tamanho);
+
+//main
+void main ()
+{	
+	//declaração de variáveis
+	int vetor[20];
+	int valor, retorno;
+	
+	//preenchendo o vetor de forma aleatória, de forma aordenada
+	preencherAleatorioOrdenado (vetor, 20);
+	
+	//exibindo o vetor
+	exibir (vetor, 20);
+	
+	//solicitando o valor a ser buscado
+	printf ("Entre com o valor a ser buscado: ");
+	scanf ("%d", &valor);
+		
+	//chamando a função
+	retorno = buscar (vetor, 20, valor);
+		
+	//exibindo o resultado
+	printf ("\nPosicao = %d", retorno);
+}
+
+//implementação das funções
+int buscar (int vetor[], int quantidade, int valor)
+{
+	//declaração de variáveis
+	int i;
+	
+	//percorrendo o vetor
+	for (i=0;i<quantidade;i++)
+	{
+		//verificando se 'valor' foi encontrado no vetor
+		/*if (vetor[i] == valor)
+		{
+			return i;
+		}
+		else
+		{
+			if (vetor[i] > valor)
+			{
+				return i;
+			}
+		}*/
+		
+		if (vetor[i] >= valor)
+		{
+			return i;
+		}
+	}
+	
+	//se chegou a este ponto, o valor buscado é maior do que todos que estão no vetor
+	return quantidade;
+}
+
+void preencherAleatorio (int vetor[], int tamanho, int limite)
+{
+	//declaração de variáveis
+	int i;
+	
+	srand (time(NULL));
+	
+	//preenchendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		vetor[i] = rand()%limite;
+	}
+}
+
+void preencherAleatorioOrdenado (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	srand (time(NULL));
+	
+	vetor[0] = rand()%10;
+	
+	for (i=1;i<tamanho;i++)
+	{
+		vetor[i] = vetor[i-1] + rand()%5;
+	}	
+}
+
+void exibir (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	//exibindo os elementos do vetor
+	printf ("\n\nElementos do vetor: ");
+	for (i=0;i<tamanho;i++)
+	{
+		printf ("%d ", vetor[i]);
+	}
+	printf ("\n\n");
+}
