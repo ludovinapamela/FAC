@@ -1,0 +1,59 @@
+Lista de Exercícios IX:
+	
+	QUESTÃO 04:
+	A função logarítmica é complementar à potenciação. Ou seja, 
+	uma vez que 3^4 = 81, podemos então afirmar que log 3 81 = 4.
+
+	Generalizando, temos que:
+
+		base^expoente = pot   <=>  log base pot = expoente
+
+	Com base nessa descrição, pede-se o desenvolvimento de uma 
+	função que, dados a e b, calcule o valor de log a b.
+
+	Nota: a sua solução deverá apresentar um valor inteiro que, 
+	na verdade, será a solução aproximada do logaritmo.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+#include <limits.h>
+
+//protótipos das funções
+int logaritmo (int base, int log);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int base, logaritmando, resultado;
+	
+	//lendo os dados
+	printf ("\nLogaritmando: ");
+	scanf ("%d", &logaritmando);
+	
+	printf ("\nBase: ");
+	scanf ("%d", &base);
+	
+	//chamando a função
+	resultado = logaritmo (base, logaritmando);
+	
+	//exibindo o resultado
+	printf ("\nResultado: %d", resultado);
+}
+
+//implementação das funções
+int logaritmo (int base, int log)
+{
+	//declaração de variáveis 
+	int potencia = 1, expoente = 0;
+	
+	while (potencia < log)
+	{
+		expoente++;
+		
+		potencia *= base;
+	}
+	
+	return expoente;	
+}
