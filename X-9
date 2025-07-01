@@ -1,0 +1,157 @@
+Lista de Exercícios X (vetores)
+	
+	QUESTÃO 09:
+	Implementar a função de inserção de determinado elemento em um vetor ordenado crescentemente 
+	(dica: utilizar a função do item 08 para auxiliar).
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+int inserir (int vetor[], int *quantidade, int capacidade, int valor);
+int buscar (int vetor[], int quantidade, int valor);
+
+void preencherAleatorio (int vetor[], int tamanho, int limite);
+void preencherAleatorioOrdenado (int vetor[], int tamanho);
+void exibir (int vetor[], int tamanho);
+
+//main
+void main ()
+{	
+	//declaração de variáveis
+	int vetor[20];
+	int valor, retorno, quantidade = 15;
+	
+	//preenchendo o vetor de forma aleatória, de forma aordenada
+	preencherAleatorioOrdenado (vetor, quantidade);
+	
+	//exibindo o vetor antes da inserção
+	exibir (vetor, quantidade);
+	
+	//solicitando o valor a ser inserido
+	printf ("Entre com o valor a ser inserido: ");
+	scanf ("%d", &valor);
+		
+	//chamando a função
+	retorno = inserir (vetor, &quantidade, 20, valor);
+		
+	//exibindo o resultado
+	if (retorno == 1)
+	{
+		//exibindo o vetor depois da inserção
+		exibir (vetor, quantidade);
+		
+		printf ("\nInsercao realizada com sucesso!");
+	}
+	else
+	{
+		printf ("\nInsercao nao realizada!");
+	}
+}
+
+//implementação das funções
+int inserir (int vetor[], int *quantidade, int capacidade, int valor)
+{
+	//declaração de variáveis
+	int i, posicao;
+	
+	//verificando se há espaço para inserir 'valor'
+	if (*quantidade < capacidade)
+	{
+		//chamando a função de busca para determinar em que posição 'valor' será inserido
+		posicao = buscar (vetor, *quantidade, valor);
+		
+		//deslocando os elementos de 'posicao' ao fim uma posição para a direita
+		for (i=*quantidade-1;i>=posicao;i--)
+		{
+			vetor[i+1] = vetor[i];
+		}
+		
+		//inserindo o valor em 'posicao'
+		vetor[posicao] = valor;
+		
+		//atualizando a quantidade de elementos do vetor
+		(*quantidade)++;
+		
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int buscar (int vetor[], int quantidade, int valor)
+{
+	//declaração de variáveis
+	int i;
+	
+	//percorrendo o vetor
+	for (i=0;i<quantidade;i++)
+	{
+		//verificando se 'valor' foi encontrado no vetor
+		/*if (vetor[i] == valor)
+		{
+			return i;
+		}
+		else
+		{
+			if (vetor[i] > valor)
+			{
+				return i;
+			}
+		}*/
+		
+		if (vetor[i] >= valor)
+		{
+			return i;
+		}
+	}
+	
+	//se chegou a este ponto, o valor buscado é maior do que todos que estão no vetor
+	return quantidade;
+}
+
+void preencherAleatorio (int vetor[], int tamanho, int limite)
+{
+	//declaração de variáveis
+	int i;
+	
+	srand (time(NULL));
+	
+	//preenchendo o vetor
+	for (i=0;i<tamanho;i++)
+	{
+		vetor[i] = rand()%limite;
+	}
+}
+
+void preencherAleatorioOrdenado (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	srand (time(NULL));
+	
+	vetor[0] = rand()%10;
+	
+	for (i=1;i<tamanho;i++)
+	{
+		vetor[i] = vetor[i-1] + rand()%5;
+	}	
+}
+
+void exibir (int vetor[], int tamanho)
+{
+	//declaração de variáveis
+	int i;
+	
+	//exibindo os elementos do vetor
+	printf ("\n\nElementos do vetor: ");
+	for (i=0;i<tamanho;i++)
+	{
+		printf ("%d ", vetor[i]);
+	}
+	printf ("\n\n");
+}
