@@ -1,0 +1,65 @@
+Lista de Exercícios VIII:
+	
+	QUESTÃO 05:
+	Fazer uma função que calcule o MMC (mínimo múltiplo comum) 
+	entre dois números.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+int mmc (int num1, int num2);
+int maximo (int valor1, int valor2);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int numero1, numero2, resultado;
+	
+	//lendo os dois valores
+	printf ("Entre com dois numeros: ");
+	scanf ("%d %d", &numero1, &numero2);
+	
+	//chamando a função
+	resultado = mmc (numero1, numero2);
+	
+	//exibindo o resultado
+	printf ("\n\nMMC(%d,%d) = %d", numero1, numero2, resultado);
+}
+
+//implementação das funções
+int mmc (int num1, int num2)
+{
+	//declaração de variáveis
+	int i, maior, produto;
+	
+	//determinando o maior
+	maior = maximo (num1, num2);
+	
+	//varrendo o intervalo dos possíveis resultados
+	produto = num1*num2;
+	for (i=maior;i<=produto;i++)
+	{
+		//verificando se 'i' é múltiplo 
+		if ((i%num1==0) && (i%num2==0))
+		{
+			return i;
+		}
+	}
+}
+
+int maximo (int valor1, int valor2)
+{
+	/*if (valor1 > valor2)
+	{
+		return valor1;
+	}
+	else
+	{
+		return valor2;
+	}*/
+	
+	return (valor1>valor2)?valor1:valor2;
+}
