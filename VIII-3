@@ -1,0 +1,68 @@
+Lista de Exercícios VIII:
+	
+	QUESTÃO 03:
+	Desenvolver uma função que calcule o n-ésimo termo da sequência 
+	de Fibonacci.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+int fibonacci (int n);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int ordem, termo;
+	
+	//lendo a ordem
+	printf ("Entre com a ordem desejada: ");
+	scanf ("%d", &ordem);
+	
+	//chamando a função
+	termo = fibonacci (ordem);
+	
+	//exibindo o resultado
+	printf ("\n%d o. termo = %d", ordem, termo);
+}
+
+//implementação das funções
+int fibonacci (int n)
+{
+	//declaração de variáveis
+	int i, a, b, c;
+	
+	//verificando se é o primeiro elemento da sequência
+	if (n == 1)
+	{
+		c = 0;
+	}
+	else
+	{
+		//... se é o segundo
+		if (n == 2)
+		{
+			c = 1;
+		}
+		else
+		{
+			//se é do terceiro em diante
+			a = 0;
+			b = 1;
+			
+			for (i=3;i<=n;i++)
+			{
+				//calculando o i-ésimo termo
+				c = a + b;
+				
+				//atualizando os valores de 'a' e 'b'
+				a = b;
+				b = c;
+			}
+		}
+	}	
+	
+	return c;
+}
