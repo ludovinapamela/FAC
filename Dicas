@@ -1,0 +1,110 @@
+Claro! Aqui vão **dicas certeiras para mandar bem na sua prova de C**, divididas em blocos rápidos para facilitar:
+
+---
+
+### 🧠 **1. Entenda a lógica antes da sintaxe**
+
+* **Leia o enunciado com calma.** O que o problema pede? Entrada, saída, condição, laço?
+* Faça **rascunho no papel**: trace o fluxo (entrada → processamento → saída).
+
+---
+
+### 🔁 **2. Laços (`for`, `while`, `do while`)**
+
+* Use `for` quando **souber quantas vezes** vai repetir.
+* Use `while` ou `do while` quando **não souber exatamente** o número de repetições (ex: até o usuário digitar 0).
+* Exemplo clássico com `do while`:
+
+```c
+int opcao;
+do {
+    printf("1 - Continuar\n0 - Sair\n");
+    scanf("%d", &opcao);
+} while(opcao != 0);
+```
+
+---
+
+### 🧮 **3. Vetores e matrizes**
+
+* Vetores (arrays) armazenam vários valores do mesmo tipo:
+
+```c
+int vet[5] = {1, 2, 3, 4, 5};
+for(int i = 0; i < 5; i++) {
+    printf("%d ", vet[i]);
+}
+```
+
+* Para matrizes:
+
+```c
+int mat[2][3]; // 2 linhas, 3 colunas
+```
+
+---
+
+### 🧰 **4. Funções**
+
+* Use para organizar o código.
+* Exemplo:
+
+```c
+int soma(int a, int b) {
+    return a + b;
+}
+```
+
+* Declare antes do `main()` ou coloque o protótipo (`int soma(int, int);`).
+
+---
+
+### 🧨 **5. Cuidados com `scanf` e `%`**
+
+* `%d` para `int`, `%f` para `float`, `%lf` para `double`, `%c` para `char`
+* Sempre **use `&` no `scanf`**:
+
+```c
+scanf("%d", &numero); // não esqueça o &
+```
+
+---
+
+### 📛 **6. Comuns em prova**
+
+* Verificação de **números pares**: `if (n % 2 == 0)`
+* Contagem de ocorrências em vetores
+* Troca de elementos: use variável auxiliar!
+
+```c
+int aux = a;
+a = b;
+b = aux;
+```
+
+* Menu com `switch` + `do while`
+
+---
+
+### 🔍 **7. Debug na mão**
+
+Se der tempo, **verifique seus laços manualmente** com 2 ou 3 valores de teste. Imagine os passos um por um:
+
+* Valor de `i`?
+* Valor de `vetor[i]`?
+* Entra ou não no `if`?
+
+---
+
+### 📝 **8. Antes de entregar**
+
+✅ Verifique:
+
+* Fechou todos os `{}`?
+* `main()` tem `return 0;`?
+* Variáveis estão bem declaradas?
+* `scanf` com `&`?
+
+---
+
+Se quiser, posso montar um **resumo com os comandos mais usados**, ou simular questões com **resposta explicada** pra treinar agora. Quer fazer isso?
