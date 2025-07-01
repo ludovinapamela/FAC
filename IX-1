@@ -1,0 +1,47 @@
+Lista de Exercícios IX:
+	
+	QUESTÃO 01:
+	Desenvolver uma função que, dado um número inteiro n, exiba 
+	todos os números existentes no intervalo definido por a e b 
+	(a < b), exceto aqueles que forem múltiplos de n.
+*/
+
+//importação de bibliotecas
+#include <stdio.h>
+
+//protótipos das funções
+void exibirNumeros (int n, int a, int b);
+
+//main
+void main ()
+{
+	//declaração de variáveis
+	int numero, inf, sup;
+	
+	//lendo os dados de entrada
+	printf ("Entre com o numero: ");
+	scanf ("%d", &numero);
+	
+	printf ("Entre com o intervalo: ");
+	scanf ("%d %d", &inf, &sup);
+		
+	//chamando a função
+	exibirNumeros (numero, inf, sup);
+}
+
+//implementação das funções
+void exibirNumeros (int n, int a, int b)
+{
+	//declaração de variáveis
+	int i;
+	
+	//varrendo o intervalo de 'a' até 'b'
+	for (i=a;i<=b;i++)
+	{
+		//verificando se 'i' não é múltiplo de 'n'
+		if (i%n!=0)
+		{
+			printf ("%d ", i);
+		}
+	}
+}
